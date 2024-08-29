@@ -205,4 +205,5 @@ type Languages = Literal[
     'zho_Hant',
     'zsm_Latn',
     'zul_Latn',
+    'autodetect'
 ]
