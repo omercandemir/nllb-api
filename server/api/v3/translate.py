@@ -5,7 +5,7 @@ from litestar.openapi.spec.example import Example
 from litestar.params import Parameter
 from litestar.status_codes import HTTP_200_OK
 
-from server.features import TranslatorPool
+from server.features import TranslatorPool, LanguageDetector
 from server.features.types import Languages
 from server.schemas.v1 import Translated, Translation
 
@@ -40,4 +40,6 @@ class TranslateController(Controller):
         -------
         the POST variant of the `/translate` route
         """
+        if data.source == "autodetect":
+            data.source = LanguageDetector.detect(data.text)
         return Translated(result=await TranslatorPool.translate(data.text, data.source, data.target))
