@@ -19,5 +19,5 @@ class Translation(Struct):
     """
 
     text: Annotated[str, Meta(examples=['Hello, world!'])]
-    source: Annotated[Languages, Meta(examples=['eng_Latn'])]
+    source: Annotated[str, Meta(examples=['eng_Latn'])]
     target: Annotated[Languages, Meta(examples=['spa_Latn'])]
