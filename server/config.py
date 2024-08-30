@@ -1,7 +1,9 @@
 from pydantic_settings import BaseSettings
+from typing import TypeVar, Type
 
+T = TypeVar('T')
 
-def singleton[T](cls: type[T]) -> T:
+def singleton(cls: Type[T]) -> T:
     """
     Summary
     -------
@@ -9,7 +11,7 @@ def singleton[T](cls: type[T]) -> T:
 
     Parameters
     ----------
-    cls (type[T]) : the class to make a singleton
+    cls (Type[T]) : the class to make a singleton
 
     Returns
     -------
