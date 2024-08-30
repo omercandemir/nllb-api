@@ -30,7 +30,7 @@ class Translator:
         device: Devices = 'cpu',
         *,
         device_index: str | dict[str, str] = 'default',
-        compute_type: ComputeTypes = 'default',
+        compute_type = 'default',
         inter_threads: int = 1,
         intra_threads: int = 0,
         max_queued_batches: int = 0,

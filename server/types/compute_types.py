@@ -1,6 +1,6 @@
 from typing import Literal
 
-type ComputeTypes = Literal[
+ComputeTypes = Literal[
     'default',
     'auto',
     'int8',

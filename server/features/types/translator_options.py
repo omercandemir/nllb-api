@@ -1,6 +1,6 @@
 from typing import TypedDict
 
-from server.types import ComputeTypes, Devices
+from server.types import Devices
 
 
 class TranslatorOptions(TypedDict):
@@ -13,11 +13,11 @@ class TranslatorOptions(TypedDict):
     ----------
     model_path (str) : the path to the model
     device (Devices) : the device to use
-    compute_type (ComputeTypes) : the compute type
+    compute_type (ComputeTypes) : the compute type or string
     inter_threads (int) : the number of inter-threads
     """
 
     model_path: str
     device: Devices
-    compute_type: ComputeTypes
+    compute_type: str
     inter_threads: int
