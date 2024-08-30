@@ -6,7 +6,7 @@ from ctranslate2 import Translator as CTranslator
 from transformers.models.nllb.tokenization_nllb_fast import NllbTokenizerFast
 
 from server.config import Config
-from server.features.types import Languages, TranslatorOptions
+from server.features.types import TranslatorOptions
 from server.helpers import huggingface_download
 
 
@@ -48,7 +48,7 @@ class Translator:
     def __exit__(self, *_):
         self.lock = False
 
-    def translate(self, text: str, source_language: Languages, target_language: Languages) -> str:
+    def translate(self, text: str, source_language, target_language) -> str:
         """
         Summary
         -------
@@ -105,7 +105,7 @@ class TranslatorPool:
         cls.pool = cycle([Translator() for _ in range(Config.translator_pool_count)])
 
     @classmethod
-    async def translate(cls, text: str, source_language: Languages, target_language: Languages) -> str:
+    async def translate(cls, text: str, source_language, target_language) -> str:
         """
         Summary
         -------
