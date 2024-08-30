@@ -2,7 +2,6 @@ from fasttext import load_model
 from fasttext.FastText import _FastText as FastText  # type: ignore
 
 from server.config import Config
-from server.features.types.languages import Languages
 from server.helpers import huggingface_file_download
 
 
@@ -34,7 +33,7 @@ class LanguageDetector:
         cls.model: FastText = load_model(model_path)
 
     @classmethod
-    def detect(cls, text: str) -> Languages:
+    def detect(cls, text: str):
         """
         Summary
         -------
