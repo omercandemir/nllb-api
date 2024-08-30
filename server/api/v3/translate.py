@@ -23,7 +23,7 @@ class TranslateController(Controller):
     async def translate_get(
         self,
         text: Annotated[str, Parameter(examples=[Example(value='Hello, world!')])],
-        source: Annotated[Languages, Parameter(examples=[Example(value='eng_Latn')])],
+        source: Annotated[str, Parameter(examples=[Example(value='eng_Latn')])],
         target: Annotated[Languages, Parameter(examples=[Example(value='spa_Latn')])],
     ) -> Translated:
         """
