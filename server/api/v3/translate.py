@@ -6,7 +6,6 @@ from litestar.params import Parameter
 from litestar.status_codes import HTTP_200_OK
 
 from server.features import TranslatorPool, LanguageDetector
-from server.features.types import Languages
 from server.schemas.v1 import Translated, Translation
 
 
@@ -24,7 +23,7 @@ class TranslateController(Controller):
         self,
         text: Annotated[str, Parameter(examples=[Example(value='Hello, world!')])],
         source: Annotated[str, Parameter(examples=[Example(value='eng_Latn')])],
-        target: Annotated[Languages, Parameter(examples=[Example(value='spa_Latn')])],
+        target: Annotated[str, Parameter(examples=[Example(value='spa_Latn')])],
     ) -> Translated:
         """
         Summary

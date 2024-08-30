@@ -2,7 +2,6 @@ from typing import Annotated
 
 from msgspec import Meta, Struct
 
-from server.features.types import Languages
 
 
 class Translation(Struct):
@@ -20,4 +19,4 @@ class Translation(Struct):
 
     text: Annotated[str, Meta(examples=['Hello, world!'])]
     source: Annotated[str, Meta(examples=['eng_Latn'])]
-    target: Annotated[Languages, Meta(examples=['spa_Latn'])]
+    target: Annotated[str, Meta(examples=['spa_Latn'])]

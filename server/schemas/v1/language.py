@@ -2,7 +2,6 @@ from typing import Annotated
 
 from msgspec import Meta, Struct
 
-from server.features.types import Languages
 
 
 class Language(Struct):
@@ -16,4 +15,4 @@ class Language(Struct):
     language (Languages) : the detected language
     """
 
-    language: Annotated[Languages, Meta(examples=['eng_Latn'])]
+    language: Annotated[str, Meta(examples=['eng_Latn'])]
