@@ -37,7 +37,7 @@ class Config(BaseSettings):
     language_detector_model_name (str) : the name of the language detector model
     """
 
-    server_port: int = 49494
+    server_port: int = 8000
     server_root_path: str = '/api'
     worker_count: int = 1
     translator_pool_count: int = 2
