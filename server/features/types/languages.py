@@ -1,6 +1,6 @@
 from typing import Literal
 
-type Languages = Literal[
+Languages = Literal[
     'ace_Arab',
     'ace_Latn',
     'acm_Arab',
