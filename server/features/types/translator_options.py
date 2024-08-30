@@ -1,4 +1,4 @@
-from typing import Required, TypedDict
+from typing import TypedDict
 
 from server.types import ComputeTypes, Devices
 
@@ -17,7 +17,7 @@ class TranslatorOptions(TypedDict):
     inter_threads (int) : the number of inter-threads
     """
 
-    model_path: Required[str]
+    model_path: str
     device: Devices
     compute_type: ComputeTypes
     inter_threads: int
