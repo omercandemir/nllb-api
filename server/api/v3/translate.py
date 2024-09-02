@@ -41,5 +41,4 @@ class TranslateController(Controller):
         """
         if data.source == "autodetect":
             data.source = LanguageDetector.detect(data.text)
-        print(data.source)
         return Translated(result=await TranslatorPool.translate(data.text, data.source, data.target))
