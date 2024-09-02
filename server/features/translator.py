@@ -8,6 +8,8 @@ from transformers.models.nllb.tokenization_nllb_fast import NllbTokenizerFast
 from server.config import Config
 from server.features.types import TranslatorOptions
 from server.helpers import huggingface_download
+import os
+from pathlib import Path
 
 
 class Translator:
@@ -23,6 +25,37 @@ class Translator:
     """
 
     __slots__ = ('translator', 'tokeniser', 'lock')
+
+    def get_model_path(model_name: str, local_dir: str = ".cache/huggingface/hub") -> str:
+        """
+        Get the local path of the model. If the model is not downloaded, download it.
+        
+        Parameters
+        ----------
+        model_name : str
+            The name of the model to download.
+        local_dir : str
+            The local directory to save the model.
+        
+        Returns
+        -------
+        str
+            The local path to the model.
+        """
+        # Construct the expected local path
+        local_model_path = Path(local_dir) / f"models--{model_name.replace('/', '--')}" / "snapshots"
+        
+        # Check if the model directory exists
+        if local_model_path.exists() and any(local_model_path.iterdir()):
+            # Get the most recent snapshot directory
+            print("Model found locally")
+            snapshot_dir = max(local_model_path.iterdir(), key=os.path.getmtime)
+            return str(snapshot_dir)
+        else:
+            # Download the model if not found locally
+            print("Model not found locally")
+            model_path = huggingface_download(model_name)
+            return model_path
 
     def __init__(self):
         model_path = huggingface_download(Config.translator_model_name)
