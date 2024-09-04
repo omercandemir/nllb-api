@@ -1,0 +1,7 @@
+granian
+litestar
+fasttext
+pydantic-settings
+huggingface-hub
+ctranslate2
+transformers

@@ -14,7 +14,7 @@ def main():
     granian = Granian(
         f'{App.__module__}:{App.__name__}',
         '0.0.0.0',
-        8000, # Server Port
+        20705, # Server Port
         Interfaces.ASGI,
         2, # WORKER_COUNT
         log_access=True,
