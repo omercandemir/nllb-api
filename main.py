@@ -14,9 +14,9 @@ def main():
     granian = Granian(
         f'{App.__module__}:{App.__name__}',
         '0.0.0.0',
-        8000, # Server Port
+        7860, # Server Port
         Interfaces.ASGI,
-        8, # WORKER_COUNT
+        16, # WORKER_COUNT
         log_access=True,
         log_access_format='[%(time)s] %(status)d "%(method)s %(path)s %(protocol)s" %(addr)s in %(dt_ms).2f ms',
         url_path_prefix=Config.server_root_path,
