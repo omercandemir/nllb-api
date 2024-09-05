@@ -41,7 +41,7 @@ class Config(BaseSettings):
     server_root_path: str = '/api'
     worker_count: int = 32
     translator_pool_count: int = 2
-    use_cuda: bool = False
+    use_cuda: bool = True
     translator_model_name: str = 'winstxnhdw/nllb-200-distilled-1.3B-ct2-int8'
     # translator_model_name: str = 'JustFrederik/nllb-200-distilled-600M-ct2-int8'                  
     language_detector_model_name: str = 'facebook/fasttext-language-identification'
