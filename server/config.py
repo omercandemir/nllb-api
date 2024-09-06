@@ -39,7 +39,7 @@ class Config(BaseSettings):
 
     server_port: int = 7860
     server_root_path: str = '/api'
-    worker_count: int = 4
+    worker_count: int = 8
     translator_pool_count: int = 2
     use_cuda: bool = True
     translator_model_name: str = 'winstxnhdw/nllb-200-distilled-1.3B-ct2-int8'
