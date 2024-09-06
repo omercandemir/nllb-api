@@ -61,8 +61,8 @@ class Translator:
         model_path = huggingface_download(Config.translator_model_name)
         options: TranslatorOptions = {
             'model_path': model_path,
-            #'device': 'cuda' if Config.use_cuda else 'cpu',
-            'device': 'cuda',
+            'device': 'cuda' if Config.use_cuda else 'cpu',
+            # 'device': 'cuda',
             'compute_type': 'auto',
             'inter_threads': Config.worker_count,
         }
